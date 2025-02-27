@@ -20,4 +20,5 @@ public class GeziRehberBilgileri implements Serializable {
         this.history = history;
         this.about = about;
     }
+
 }
