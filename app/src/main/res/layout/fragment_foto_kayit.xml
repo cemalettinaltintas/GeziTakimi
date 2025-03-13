@@ -15,6 +15,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="32dp"
+        android:onClick="gorselSec"
         android:src="@drawable/select_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

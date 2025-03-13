@@ -15,9 +15,14 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.cemalettinaltintas.gezitakimi.R;
+import com.cemalettinaltintas.gezitakimi.databinding.ActivityGeziRehberiBinding;
+import com.cemalettinaltintas.gezitakimi.model.GeziRehberBilgileri;
+import com.squareup.picasso.Picasso;
 
 public class GeziRehberiActivity extends AppCompatActivity {
-
+    private ActivityGeziRehberiBinding activityGeziRehberiBinding;
+    int dilSecimi;
+    GeziRehberBilgileri geziRehberBilgileri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,28 @@ public class GeziRehberiActivity extends AppCompatActivity {
         });
         Toolbar toolbar=findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        geziRehberBilgileri = (GeziRehberBilgileri) intent.getSerializableExtra("geziYerleriDetay");
+        dilSecimi = intent.getIntExtra("dilSecimi",0);
+        verileriAl();
+    }
+
+    private void verileriAl() {
+        Picasso.get().load(geziRehberBilgileri.imageID).into(activityGeziRehberiBinding.imageViewGorsel);
+        if(dilSecimi==0){
+            activityGeziRehberiBinding.textViewYerBigi.setText(geziRehberBilgileri.yerAdi);
+            activityGeziRehberiBinding.textViewUlkeBilgi.setText(geziRehberBilgileri.ulkeAdi);
+            activityGeziRehberiBinding.textViewSehirBigi.setText(geziRehberBilgileri.sehirAdi);
+            activityGeziRehberiBinding.textViewTarihce.setText(geziRehberBilgileri.tarihce);
+            activityGeziRehberiBinding.textViewHakkinda.setText(geziRehberBilgileri.hakkinda);
+        }else{
+            activityGeziRehberiBinding.textViewYerBigi.setText(geziRehberBilgileri.placeName);
+            activityGeziRehberiBinding.textViewUlkeBilgi.setText(geziRehberBilgileri.countryName);
+            activityGeziRehberiBinding.textViewSehirBigi.setText(geziRehberBilgileri.cityName);
+            activityGeziRehberiBinding.textViewTarihce.setText(geziRehberBilgileri.history);
+            activityGeziRehberiBinding.textViewHakkinda.setText(geziRehberBilgileri.about);
+        }
     }
 
     @Override

@@ -25,14 +25,13 @@ public class LogoActivity extends AppCompatActivity {
             return insets;
         });
         new CountDownTimer(5000,1000){
-
             @Override
             public void onTick(long l) {
 
             }
-
             @Override
             public void onFinish() {
+                finish();
                 Intent intent=new Intent(LogoActivity.this,MainActivity.class);
                 startActivity(intent);
             }

@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/editText_YerAdi"
+        android:id="@+id/editText_NameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <EditText
-        android:id="@+id/editText_Ulke"
+        android:id="@+id/editText_CountryInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -34,9 +34,9 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText_YerAdi" />
+        app:layout_constraintTop_toBottomOf="@id/editText_NameInput" />
     <EditText
-        android:id="@+id/editText_Sehir"
+        android:id="@+id/editText_CityInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -48,9 +48,9 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText_Ulke" />
+        app:layout_constraintTop_toBottomOf="@id/editText_CountryInput" />
     <EditText
-        android:id="@+id/editText_Tarihce"
+        android:id="@+id/editText_HistoryInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,9 +64,9 @@
         android:gravity="top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText_Sehir" />
+        app:layout_constraintTop_toBottomOf="@id/editText_CityInput" />
     <EditText
-        android:id="@+id/editText_Hakkinda"
+        android:id="@+id/editText_AboutInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -80,5 +80,5 @@
         android:gravity="top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText_Tarihce" />
+        app:layout_constraintTop_toBottomOf="@id/editText_HistoryInput" />
 </androidx.constraintlayout.widget.ConstraintLayout>

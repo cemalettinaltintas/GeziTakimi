@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "895378356263",
+    "project_id": "gezirehberi-8694e",
+    "storage_bucket": "gezirehberi-8694e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895378356263:android:5148d0889898d8e9ac7602",
+        "android_client_info": {
+          "package_name": "com.cemalettinaltintas.gezitakimi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd6LeDZqKptJzivzswrns55SaeQKKkIYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

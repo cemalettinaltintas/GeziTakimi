@@ -3,9 +3,9 @@ package com.cemalettinaltintas.gezitakimi.model;
 import java.io.Serializable;
 
 public class GeziRehberBilgileri implements Serializable {
-    String imageID;
-    String yerAdi, ulkeAdi, sehirAdi, tarihce, hakkinda;
-    String placeName, countryName, cityName, history, about;
+    public String imageID;
+    public String yerAdi, ulkeAdi, sehirAdi, tarihce, hakkinda;
+    public String placeName, countryName, cityName, history, about;
 
     public GeziRehberBilgileri(String imageID, String yerAdi, String ulkeAdi, String sehirAdi, String tarihce, String hakkinda, String placeName, String countryName, String cityName, String history, String about) {
         this.imageID = imageID;
@@ -20,5 +20,4 @@ public class GeziRehberBilgileri implements Serializable {
         this.history = history;
         this.about = about;
     }
-
 }
