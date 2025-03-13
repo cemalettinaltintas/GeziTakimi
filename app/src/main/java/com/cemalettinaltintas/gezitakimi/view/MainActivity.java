@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     FirebaseStorage firebaseStorage;
     ArrayList<GeziRehberBilgileri> yerler;
+    ArrayAdapter arrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,16 +64,18 @@ public class MainActivity extends AppCompatActivity {
         dilSecim=intent.getIntExtra("dilSecimi",0);
         verileriAlTr(); //Verilerin veri tabanından getirileceği metottur.
 
+        //arrayAdapter.notifyDataSetChanged();
         binding.listViewYerler.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                finish();
+                //finish();
                 Intent intentToDetail=new Intent(MainActivity.this, GeziRehberiActivity.class);
                 intentToDetail.putExtra("geziYerleriDetay",yerler.get(i));
                 intentToDetail.putExtra("dilSecimi",dilSecim);
                 startActivity(intentToDetail);
             }
         });
+
     }
 
     private void verileriAlTr() {
@@ -81,8 +84,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error!=null){
-                    Toast.makeText(getApplicationContext(),error.getLocalizedMessage(),Toast.LENGTH_LONG).
-                            show();
+                    Toast.makeText(getApplicationContext(),error.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 }
                 if (value!=null){
                     for (DocumentSnapshot snapshot:value.getDocuments()){
@@ -101,13 +103,15 @@ public class MainActivity extends AppCompatActivity {
                         String imageURL = (String) mapData.get("gorselURL");
                         GeziRehberBilgileri geziRehberBilgileri = new GeziRehberBilgileri(imageURL,yerAdi,ulkeAdi,sehirAdi,tarihce,hakkinda,placeName,countryName,cityName,history,about);
                         yerler.add(geziRehberBilgileri);
+
                     }
+
                     if (dilSecim==0){
-                        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, yerler.stream().map(yerlerTr -> yerlerTr.yerAdi).collect(Collectors.toList()));
+                        arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, yerler.stream().map(yerlerTr -> yerlerTr.yerAdi).collect(Collectors.toList()));
                         //Burada yerler içindeki verilerden sadece yerAdi bilgisinin ekranda gösterilmesi istenir.
                         binding.listViewYerler.setAdapter(arrayAdapter);
                     }else{
-                        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, yerler.stream().map(yerlerTr-> yerlerTr.placeName).collect(Collectors.toList()));
+                        arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, yerler.stream().map(yerlerTr-> yerlerTr.placeName).collect(Collectors.toList()));
                         //Burada yerler içindeki verilerden sadece placeName bilgisinin ekranda gösterilmesi istenir.
                         binding.listViewYerler.setAdapter(arrayAdapter);
                     }

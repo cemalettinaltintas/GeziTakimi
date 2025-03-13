@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -16,18 +17,21 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.cemalettinaltintas.gezitakimi.R;
 import com.cemalettinaltintas.gezitakimi.databinding.ActivityGeziRehberiBinding;
+import com.cemalettinaltintas.gezitakimi.databinding.ActivityMainBinding;
 import com.cemalettinaltintas.gezitakimi.model.GeziRehberBilgileri;
 import com.squareup.picasso.Picasso;
 
 public class GeziRehberiActivity extends AppCompatActivity {
     private ActivityGeziRehberiBinding activityGeziRehberiBinding;
-    int dilSecimi;
+    int dilSecimi=0;
     GeziRehberBilgileri geziRehberBilgileri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_gezi_rehberi);
+        activityGeziRehberiBinding = ActivityGeziRehberiBinding.inflate(getLayoutInflater());
+        View view = activityGeziRehberiBinding.getRoot();
+        setContentView(view);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
